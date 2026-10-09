@@ -1,1 +1,111 @@
-/* MEMBER 4: header, navigation and footer styles */
+/* =========================================
+   Header Styling (Member 4)
+========================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  background-color: #4b2393; /* Chitrakke sarigunavada deep purple banna */
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+.site-header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding-bottom: 4px;
+}
+
+.nav-links li a.active {
+  border-bottom: 2px solid #ffffff; /* Active link ge underline */
+}
+
+.nav-links li a:hover {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.dark-mode-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   Footer Styling (Member 4)
+========================================= */
+.site-footer {
+  background-color: #1a1b2e; /* Chitrakke sarigunavada dark background */
+  color: #d1d5db;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin-top: auto;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.footer-container p {
+  margin: 0;
+}
+
+.back-to-top {
+  color: #8b5cf6; /* Chitradalli torisiruva light purple banna */
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.back-to-top:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 1rem;
+  }
+  .nav-links {
+    display: none; 
+  }
+}
