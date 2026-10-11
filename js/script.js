@@ -95,5 +95,67 @@ if (darkModeButton) {
     darkModeButton.setAttribute("aria-pressed", String(isDark));
     darkModeButton.innerHTML = isDark ? "☀" : "&#x263E;";
   });
+
+  
+/* 4. Active Navigation Link Highlight */
+const sections = document.querySelectorAll("main section[id]");
+const navigationLinks = document.querySelectorAll(".nav-links a");
+
+function updateActiveLink() {
+  let currentSection = "";
+
+  sections.forEach((section) => {
+    if (window.scrollY >= section.offsetTop - 150) {
+      currentSection = section.id;
+    }
+  });
+
+  navigationLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${currentSection}`;
+
+    link.classList.toggle("active", isActive);
+
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+window.addEventListener("scroll", updateActiveLink);
+window.addEventListener("load", updateActiveLink);
+
+/* 5. Contact Form Validation */
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+
+if (contactForm && formStatus) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+      formStatus.textContent = "Please fill in all fields.";
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+      formStatus.textContent = "Please enter a valid email address.";
+      return;
+    }
+
+    formStatus.textContent =
+      "Your form is valid! This demo does not send messages to a server.";
+
+    contactForm.reset();
+  });
+}
+
 }
 
